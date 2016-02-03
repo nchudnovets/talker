@@ -1,0 +1,62 @@
+<template name="login">
+    <div class="login_signin_wrap">
+        
+        <ul class="nav nav-tabs login_signin_tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#login" aria-controls="login" role="tab" data-toggle="tab">Log In</a></li>
+            <li role="presentation"><a href="#signin" aria-controls="signin" role="tab" data-toggle="tab">Sign In</a></li>
+        </ul>
+        
+        <div class="tab-content login_form_wrap">    
+            <div role="tabpanel" class="tab-pane active accounts-dialog" id="login">
+                <div class="login-form login-password-form">
+                    <div id="login-username-label-and-input">
+                        <label id="login-username-label" for="login-username">
+                            Username
+                        </label>
+                        <input id="login-username" type="text">
+                    </div>
+                    
+                    <div id="login-password-label-and-input">
+                        <label id="login-password-label" for="login-password">
+                            Password
+                        </label>
+                        <input id="login-password" type="password">
+                    </div>
+                    
+                    <div class="login-button login-button-form-submit" id="login-btn-submit">
+                        Log In
+                    </div>
+                </div>
+            </div>
+            
+            <div role="tabpanel" class="tab-pane accounts-dialog" id="signin">
+                <div class="login-form login-password-form">
+                    <div id="login-username-label-and-input">
+                        <label id="signin-username-label" for="signin-username">
+                            Username
+                        </label>
+                        <input id="signin-username" type="text">
+                    </div>
+                    
+                    <div id="signin-password1-label-and-input">
+                        <label id="signin-password1-label" for="signin-password1">
+                            Password
+                        </label>
+                        <input id="signin-password1" type="password">
+                    </div>
+                    
+                    <div id="signin-password2-label-and-input">
+                        <label id="signin-password2-label" for="signin-password2">
+                            Password one more time
+                        </label>
+                        <input id="signin-password2" type="password">
+                    </div>
+                    
+                    <div class="login-button login-button-form-submit" id="reg-btn-submit">
+                        Sign In
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

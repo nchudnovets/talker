@@ -1,0 +1,68 @@
+<template name='conversation'>
+    
+    <div class="container col-xs-10 col-md-4 col-xs-offset-1 col-md-offset-4 chat_wrap">
+        
+        
+        {{ #if currentUser }}
+            <a href="/conversations" class="pull-left">
+                Back
+            </a>
+            
+            {{ #each conversation }}    
+                <div class="row chat_header">
+                    <h2 class="chat_header__chat_name text-center">Conversation</h2>
+                    <p class="bg-success"><span class="bold">Theme: </span>{{ conversation_theme }}</p>
+                    <div class="participiants">
+                        <p class="bg-info"><span class="bold">Participiants: </span>{{ recepients }}</p>
+                    
+                        {{ #if editRecepMode }}
+                            <form id="editRecepientsForm">
+                                <input type="text" name="newRecepient" id="newRecepient_name" placeholder="username"  class="col-xs-9"/>
+                                <input type="submit" value="Add" id="newRecepient_submit"  class="col-xs-3"/>
+                            </form>
+                        {{ else }}
+                            <button class="btn btn-default col-xs-12" id="editRecepientsForm_btn">Add participiant</button>
+                        {{ /if }}
+                    </div>
+                </div>
+                
+                <div class="row chat_body__new_message_wrap">
+                    <form id="newMessageForm" >
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3" placeholder="Input your message" id="newMessageForm_text" autofocus></textarea>
+                            <button type="submit" class="btn btn-default" id="newMessageForm_submit">Send</button>
+                        </div>
+                    </form>
+                </div>
+            
+                <div class="row chat_body__messages_wrap">
+                    <ul class="list-unstyled" id="chatBodyMessages">
+                        {{ #if messages }}
+                            {{ #each message in messages }}
+                                <li class="{{ #if $eq message.created_by currentUser.username }} bg-success col-xs-offset-2 text-right {{ else }} bg-warning {{ /if }} col-xs-10 chat_body__messages_msg_body"> 
+                                    {{ >message_tpl message=message }}
+                                </li>
+                            {{ /each }}
+                        {{ else }}
+                            <li>Nothing here yet... Start to chat </li>
+                        {{ /if }}
+                    </ul>
+                </div>
+            {{ /each }}
+        {{ /if }}
+    </div>
+    
+</template>
+
+
+
+<template name="message_tpl">
+    
+            <p class="text-primary">
+                [{{ formatDate message.created_time }}] {{ message.created_by }}: 
+            </p> 
+            <p>
+                - {{ message.message_body }}
+            </p> 
+    
+</template>
